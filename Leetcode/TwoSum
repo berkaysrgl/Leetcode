@@ -1,0 +1,24 @@
+int* twoSum(int* nums, int numsSize, int target, int* returnSize){
+    int i = 0;
+    int x = 1;
+    int* sonuc = malloc(2 * sizeof(int));
+    while(i < numsSize)
+    {
+        while(x < numsSize)
+        {
+            if(nums[i] + nums[x] == target)
+            {
+                sonuc[0] = i;
+                sonuc[1] = x;
+                *returnSize = 2;
+                return sonuc;
+            }
+            x++;
+        }
+        i++;
+        x = i + 1;
+    }
+    *returnSize = 0;
+    free(sonuc);
+    return sonuc;
+}

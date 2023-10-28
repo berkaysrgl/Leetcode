@@ -1,0 +1,39 @@
+bool isPalindrome(int x)
+{
+    int64_t b = x;
+    int bs = 1;
+    int64_t a = 1;
+    int64_t c = 0;
+    if(x < 0)
+    {
+        return(false);
+    }
+    while(b >= 10)
+    {
+        b = b / 10; // b = 12, 1
+        bs++; // bs 2, 3
+        a = a * 10; // a = 10, 100
+    }
+    b = x;
+    if(bs >= 2)
+    {
+        c = b % 10;
+        c = c * a;
+        b = b / 10;
+        a = a / 10;
+        bs--;
+    }
+    while(bs >= 1)
+    {
+      c += b % 10 * a;
+      b = b / 10;
+      a = a / 10;
+      bs--;
+    }
+    if(x == c)
+    {
+        return(true);
+    }
+    else
+        return(false);
+}
